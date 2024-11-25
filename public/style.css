@@ -1,0 +1,27 @@
+body{
+    background-color: black;
+    color:antiquewhite;
+    display: block;
+    display: flex;
+   
+    align-items: center;
+    flex-direction: column;
+    margin-left: 300px;
+    margin-right: 300px;
+    
+}
+
+.like{
+   display: flex ;
+   flex-direction: row;
+  
+  
+    
+}
+
+#like{
+    width: 50px !important;
+    height: 40px;
+    padding: 5px;
+    margin-left: 10px ;
+}
