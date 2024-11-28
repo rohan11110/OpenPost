@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>Welcome to X!</h1>
+    <h1>Welcome to <b>OpenPost</b></h1>
     <button><a href="http://localhost:1110/posts/new">New Post</a></button>
     <% for(post of posts) {%>
     <div>
         <h4>postId : <%= post.id %></h4>
         <h4>Username : <b>@<%= post.username %></b></h4>
-        <p>content: <%= post.content %></p>
+        <p><b>content:</b> <%= post.content %></p>
         <div class="like">
             <p>Like : <%= post.like %></p><button id="like"><a href="http://localhost:1110/posts/<%= post.id%>/increment">Like</a></button>
             <button id="like"><a href="http://localhost:1110/posts/<%= post.id%>/edit">Edit</a></button>

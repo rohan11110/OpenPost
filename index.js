@@ -20,17 +20,33 @@ app.listen(port, function () {
 let posts =[
     {
         id : uuidv4(),
-        username : "Elon Musk",
-        content : "Elon Musk is a billionaire entrepreneur, inventor, and CEO known for founding and leading several groundbreaking companies, including Tesla (electric vehicles and clean energy), SpaceX (space exploration), Neuralink (neurotechnology), and The Boring Company (underground transportation). Musk is also the owner of Twitter, which he acquired in 2022. Widely recognized for his ambitious vision of the future, Musk aims to revolutionize industries like transportation, energy, and space travel, with long-term goals like colonizing Mars and advancing artificial intelligence. His work has made him one of the most influential and controversial figures in the tech world.",
-        like : 0,
-       
-       
+        username : "Rohan",
+        content : "Hello, my name is Rohan, and I am currently pursuing a Master's in Computer Applications. I am in my final year of studies, where I am honing my skills and expanding my knowledge in the field of computer science. Alongside my academic journey, I am actively working on developing projects using the MERN stack. ",
+        like : 2,
+        
+        
     },
     {
         id : uuidv4(),
-        username : "Rohan",
-        content : "My Name is Rohan and currently Pursuing MCA final year from BBD University.this project is based on X and the tech stack used in it is Express, EJS.",
-        like : 0,
+        username : "Douglas Adams",
+        content : "Technology is a word that describes something that doesn’t work yet.",
+        like : 8,
+        
+        
+    },
+    {
+        id : uuidv4(),
+        username : "Bill Gates",
+        content : "We are changing the world with technology",
+        like : 7,
+        
+        
+    },
+    {
+        id : uuidv4(),
+        username : "Dr. APJ Abdul Kalam",
+        content : "Science and technology are the tools to create a sustainable future",
+        like : 3,
         
         
     },
