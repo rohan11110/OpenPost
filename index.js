@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
-const port = 1110;
+const port = process.env.PORT || 1110;
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const methodOverride = require('method-override')
+require('dotenv').config();
 
 
 
@@ -57,6 +58,11 @@ let posts =[
 app.get("/posts",(req,res)=>{
     res.render("index.ejs",{posts});
 });
+
+app.get("*",(req,res)=>{
+    res.render("index.ejs",{posts});
+});
+
 
 app.get("/posts/new",(req,res)=>{
     res.render("new.ejs");
