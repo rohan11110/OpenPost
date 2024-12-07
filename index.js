@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 1110;
+const port = 1110;
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const methodOverride = require('method-override')
-require('dotenv').config();
+
 
 
 app.use(express.urlencoded({extended: true}));
