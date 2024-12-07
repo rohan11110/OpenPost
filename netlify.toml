@@ -1,0 +1,4 @@
+[build]
+base = "openpost"       # Specify the directory containing package.json
+publish = "openpost/public"  # Specify where the static assets are output
+  
