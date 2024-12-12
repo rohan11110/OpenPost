@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 1110;
+const port = process.env.PORT || 10000;
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const methodOverride = require('method-override');
@@ -8,6 +8,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const post = require('./model/post');
 const mongo_url = process.env.MONGO_URL;
+
 
 
 
@@ -21,7 +22,12 @@ app.use(express.static(path.join(__dirname,"public")));
 main().then(()=>{console.log("success!")})
 .catch(err => console.log(err));
 async function main() {
-  await mongoose.connect(mongo_url);
+  await mongoose.connect(mongo_url,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 15000,  // Increase server selection timeout
+    socketTimeoutMS: 15000,  // Increase socket timeout
+  });
 }
 
 app.listen(port, function () {
