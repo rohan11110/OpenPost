@@ -22,12 +22,7 @@ app.use(express.static(path.join(__dirname,"public")));
 main().then(()=>{console.log("success!")})
 .catch(err => console.log(err));
 async function main() {
-  await mongoose.connect(mongo_url,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 15000,  // Increase server selection timeout
-    socketTimeoutMS: 15000,  // Increase socket timeout
-  });
+  await mongoose.connect(mongo_url);
 }
 
 app.listen(port, function () {
