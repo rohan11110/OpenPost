@@ -8,16 +8,16 @@
 </head>
 <body>
     <h1>Welcome to <b>OpenPost</b></h1>
-    <button><a href="http://localhost:1110/posts/new">New Post</a></button>
+    <button><a href="/posts/new">New Post</a></button>
     <% for(post of posts) {%>
     <div>
         <h4>postId : <%= post.id %></h4>
         <h4>Username : <b>@<%= post.username %></b></h4>
         <p><b>content:</b> <%= post.content %></p>
         <div class="like">
-            <p>Like : <%= post.like %></p><button id="like"><a href="http://localhost:1110/posts/<%= post.id%>/increment">Like</a></button>
-            <button id="like"><a href="http://localhost:1110/posts/<%= post.id%>/edit">Edit</a></button>
-           <form method="post"  action="http://localhost:1110/posts/<%= post.id%>/delete?_method=DELETE">
+            <p>Like : <%= post.like %></p><button id="like"><a href="/posts/<%= post.id%>/increment">Like</a></button>
+            <button id="like"><a href="/posts/<%= post.id%>/edit">Edit</a></button>
+           <form method="post"  action="/posts/<%= post.id%>/delete?_method=DELETE">
               <button id="like"> Delete</button>
             </form>
             

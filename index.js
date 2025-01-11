@@ -1,10 +1,10 @@
+require('dotenv').config();
+const port = process.env.PORT;
 const express = require('express');
 const app = express();
-const port = 1110;
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const methodOverride = require('method-override');
-require('dotenv').config();
 const mongoose = require('mongoose');
 const post = require('./model/post');
 const mongo_url = process.env.MONGO_URL;
@@ -42,7 +42,7 @@ app.get("/posts",async(req,res)=>{
 
 
 app.get("/posts/new",(req,res)=>{
-    
+     
     res.render("new.ejs");
     
 });
