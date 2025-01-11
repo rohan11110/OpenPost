@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 10000;
+const port = 1110;
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const methodOverride = require('method-override');
@@ -98,12 +98,4 @@ app.delete("/posts/:id/delete",async(req, res)=>{
     res.redirect("/posts");
 });
 
-    
-app.get("/*",async(req,res)=>{
-    let posts = await post.find();
-    res.render("index.ejs",{posts});
-});
-
-    
-    
 
