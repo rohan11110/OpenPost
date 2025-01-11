@@ -32,7 +32,9 @@ app.listen(port, function () {
 
 
 
-
+app.get("/", (req, res) => {
+    res.redirect("/posts");  // Or render a specific view
+});
 app.get("/posts",async(req,res)=>{
     let posts = await post.find();
    
