@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header style="background-color: #212529; color: #ffffff; padding: 15px;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <!-- Logo -->
+            <h1 style="margin: 0; font-size: 1.8rem;">
+                <a href="/" style="color: #20a81b; text-decoration: none;">
+                    OpenPost
+                </a>
+            </h1>
+    
+            <!-- Navigation Links -->
+            <nav style="display: flex; gap: 20px;">
+                <a href="/" style="color: #ffffff; text-decoration: none; font-size: 1rem">Home</a>
+                <a href="/posts/new" style="color: #ffffff; text-decoration: none; font-size: 1rem;">New Post</a>
+                <% if(!currUser) { %>
+                    <a href="/login" style="color: #ffffff; text-decoration: none; font-size: 1rem;">Login</a>
+                    <a href="/signup" style="color: #ffffff; text-decoration: none; font-size: 1rem;">SignUp</a>
+                 
+                 
+                <%} else { %>
+                    <a href="/logout" style="color: #ffffff; text-decoration: none; font-size: 1rem;">Logout</a>
+                    
+                <% } %>    
+                
+               
+            </nav>
+        </div>
+    </header>
+</body>
+</html>

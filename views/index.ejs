@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to OpenPost</title>
-    <link rel="stylesheet" href="/style.css">
-</head>
+<% layout("/layout/boilerplate") %>
 <body>
-    <h1>Welcome to <b>OpenPost</b></h1>
-    <button><a href="/posts/new">New Post</a></button>
+    
+    
+    
     <% for(post of posts) {%>
     <div>
         <h4>postId : <%= post.id %></h4>
@@ -30,4 +24,3 @@
 
     <script src="/script.js"></script>
 </body>
-</html>

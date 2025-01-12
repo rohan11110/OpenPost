@@ -184,3 +184,42 @@ a:hover {
         max-width: 800px; /* Larger post container for desktops */
     }
 }
+
+/* new */
+header {
+    background-color: #212529; /* Dark background */
+    color: #ffffff; /* White text */
+    padding: 15px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header h1 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #00bcd4; /* Light blue hover color */
+}
