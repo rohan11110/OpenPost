@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const post = require('./model/post');
+const Schema = mongoose.Schema;
 
 
 let allPost =[
@@ -46,6 +47,13 @@ async function main() {
   await mongoose.connect('mongodb+srv://rohanvima:GpVPpvfOzIMFyN40@cluster0.2dtx2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 }
 
-post.insertMany(allPost);
+const initDB = async()=>{
+    
+    allPost = allPost.map((obj)=>({...obj, owner:"675ac830912007bb95465a89"}));
+    await post.insertMany(allPost);
+    console.log("data inserted");
+};
+
+initDB();
 
   

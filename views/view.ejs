@@ -1,0 +1,176 @@
+<% layout("/layout/boilerplate") %>
+
+    <head>
+        <style>
+            /* General Reset */
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Arial', sans-serif;
+                background-color: #121212;
+                /* Dark background */
+                color: #e0e0e0;
+                /* Light text */
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                margin: 10px 0;
+                color: #20a81b;
+                /* Green text for username */
+            }
+
+            /* Post Content */
+            p {
+                font-size: 1.2rem;
+                color: #e0e0e0;
+                line-height: 1.6;
+            }
+
+            .like {
+                margin-top: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 10px;
+            }
+
+            .like p {
+                color: #9e9e9e;
+                /* Subtle color for like count */
+                margin: 0;
+            }
+
+            /* Buttons */
+            button {
+                background-color: #4caf50;
+                /* Green background */
+                color: #121212;
+                /* Dark text on green */
+                border: none;
+                border-radius: 8px;
+                padding: 10px 20px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            button a {
+                color: #121212;
+                text-decoration: none;
+                display: block;
+                width: 100%;
+                /* Ensures the link fills the button */
+                text-align: center;
+            }
+
+            /* Like Button */
+            button:hover {
+                background-color: #388e3c;
+                /* Darker green on hover */
+                transform: scale(1.05);
+                /* Button hover effect */
+            }
+
+            button:active {
+                transform: scale(0.95);
+                /* Button click effect */
+                background-color: #2e7d32;
+                /* Even darker green on active */
+            }
+
+            /* Edit and Delete Buttons */
+            form button {
+                background-color: #e53935;
+                /* Red for delete */
+                color: #ffffff;
+                padding: 10px 20px;
+            }
+
+            form button:hover {
+                background-color: #c62828;
+                transform: scale(1.05);
+            }
+
+            form button:active {
+                transform: scale(0.95);
+                /* Click effect */
+                background-color: #b71c1c;
+                /* Darker red on active */
+            }
+
+            /* Containers */
+            div {
+                background-color: #1e1e1e;
+                /* Slightly lighter dark background */
+                padding: 20px;
+                margin: 20px auto;
+                max-width: 90%;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            /* Hover Effect for Post Container */
+            div:hover {
+                transform: translateY(-5px);
+                box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8);
+            }
+
+            /* Responsive Design */
+            @media screen and (max-width: 768px) {
+                body {
+                    font-size: 90%;
+                    /* Slightly smaller text for mobile */
+                }
+
+                div {
+                    padding: 15px;
+                }
+
+                button {
+                    padding: 8px 15px;
+                    font-size: 0.9rem;
+                }
+
+                h3 {
+                    font-size: 1.3rem;
+                }
+
+                p {
+                    font-size: 1.1rem;
+                }
+
+                .like {
+                    flex-direction: column;
+                    /* Stack buttons vertically on mobile */
+                    gap: 15px;
+                    /* Adds spacing between stacked buttons */
+                }
+            }
+        </style>
+</head>
+<body>
+    
+    
+    <h3>Username : @<%= postVal.username %></h3>
+    <p><b>content:</b> <%= postVal.content %></p>
+
+    <div class="like">
+        <p>Like : <%= postVal.like %></p><button id="like"><a href="/posts/<%= postVal.id%>/increment">Like</a></button>
+        
+       
+        
+    </div>
+    <% if(currUser && currUser._id.equals(postVal.owner)) {%>
+    <div class="like">
+        
+        <button class="valid" id="like"><a href="/posts/<%= postVal.id%>/edit">Edit</a></button>
+       <form method="post"  action="/posts/<%= postVal.id%>/delete?_method=DELETE">
+          <button class="valid" id="like"> Delete</button>
+        </form>
+        
+    </div>
+    <% } %>
+</body>
+</html>

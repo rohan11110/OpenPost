@@ -4,34 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/style.css"> <!-- Assuming you use an external CSS file -->
 </head>
 <body>
-    <header style="background-color: #212529; color: #ffffff; padding: 15px;">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <!-- Logo -->
-            <h1 style="margin: 0; font-size: 1.8rem;">
-                <a href="/" style="color: #20a81b; text-decoration: none;">
-                    OpenPost
-                </a>
+    <header>
+        <div class="container">
+            <h1>
+                <a href="/">OpenPost</a>
             </h1>
-    
-            <!-- Navigation Links -->
-            <nav style="display: flex; gap: 20px;">
-                <a href="/" style="color: #ffffff; text-decoration: none; font-size: 1rem">Home</a>
-                <a href="/posts/new" style="color: #ffffff; text-decoration: none; font-size: 1rem;">New Post</a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/posts/new">New Post</a>
                 <% if(!currUser) { %>
-                    <a href="/login" style="color: #ffffff; text-decoration: none; font-size: 1rem;">Login</a>
-                    <a href="/signup" style="color: #ffffff; text-decoration: none; font-size: 1rem;">SignUp</a>
-                 
-                 
-                <%} else { %>
-                    <a href="/logout" style="color: #ffffff; text-decoration: none; font-size: 1rem;">Logout</a>
-                    
-                <% } %>    
-                
-               
+                    <a href="/login">Login</a>
+                    <a href="/signup">SignUp</a>
+                <% } %>
+                <% if(currUser) { %>
+                    <a href="/logout">Logout</a>
+                <% } %>
             </nav>
+            <!-- Hamburger Menu -->
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
         </div>
     </header>
+
+    <script src="/script.js"></script>
 </body>
 </html>

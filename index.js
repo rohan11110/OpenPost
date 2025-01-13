@@ -97,18 +97,44 @@ app.get("/posts",async(req,res)=>{
 
 
 
-app.get("/posts/new",isLoggedIn,(req,res)=>{
+app.get("/posts/new",isLoggedIn,async(req,res)=>{
    
-    res.render("new.ejs");
+    let post = res.locals.currUser;
+    
+
+    res.render("new.ejs",{post});
     
 });
 
+// get the info of user
+app.get('/posts/:id', async (req, res) => {
+    const { id } = req.params;
+    
+
+    try {
+        let postVal = await post.findById(id).populate("owner.objectId");
+        if (!post) {
+            req.flash('error',"Post not found!");
+            res.redirect('/posts');
+        }
+        
+        
+        res.render('view.ejs',{postVal});
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+//
+
+
 app.post("/posts/new",(req,res)=>{
-    let {username,content} = req.body;
-   
+    let {content} = req.body;
+    let username = req.user.username;
+    console.log(username);
     
     let like =0;
-    let newPost = new post({username:username,content:content,like:like});
+    let newPost = new post({username:username,content:content,like:like,owner:req.user._id});
     console.log(newPost);
     newPost.save().then(()=>{
         console.log("saved");
@@ -135,10 +161,15 @@ app.get("/posts/:id/edit",isLoggedIn,async(req, res)=>{
     res.render("edit.ejs",{newPost});
 });
 
-app.patch("/posts/:id/edit",async(req, res)=>{
+app.patch("/posts/:id/edit",isLoggedIn,async(req, res)=>{
   let {id} = req.params;
-  let newContent = req.body.content;
   let newPost = await post.findById(id);
+  if(!res.locals.currUser._id.equals(newPost.owner)){
+    req.flash('error',"you dont have permission to edit");
+    return res.redirect(`/posts/${id}`);
+  }
+
+  let newContent = req.body.content;
   newPost.content = newContent;
   await newPost.save();
   res.redirect("/posts");

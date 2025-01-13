@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const postSchema = new mongoose.Schema({
     username :{
@@ -12,7 +13,11 @@ const postSchema = new mongoose.Schema({
     like : {
         type : 'number',
         required : true
-    }
+    },
+    owner : {
+        type : Schema.Types.ObjectId,
+        ref : "User",
+    },
 });
 
 const post = mongoose.model("post",postSchema);
